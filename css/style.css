@@ -22,8 +22,11 @@ body {
   height: 100%;
 }
 html, body {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
 }
+
 main {
   flex: 1;
 }
@@ -150,6 +153,7 @@ body.podstranka::before {
   min-height: 100vh; /* místo height */
   height: auto;
   max-height: none; /* odstraníme omezení */
+  
 }
 
 @media (max-width: 768px) {
@@ -676,29 +680,35 @@ h1 {
     max-width: 200px;
   }
 }
+
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh;
     height: 100vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
   }
 
   .hero video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: -1;
   }
 
   .overlay {
-    padding-top: 10vh; /* sníží prázdné místo nahoře */
-    height: 100%; /* zajistí, že overlay jde přes celé hero */
+    padding-top: 10vh;
+    height: auto;
+    min-height: 100vh;
   }
 }
+
 
 
   h1 {
