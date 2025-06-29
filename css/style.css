@@ -677,18 +677,26 @@ h1 {
   }
 }
 @media (max-width: 768px) {
-  .overlay {
-    padding-top: 10vh; /* sníží prázdné místo nahoře */
-  }
-}
-@media (max-width: 768px) {
   .hero {
-    height: auto; /* umožní přizpůsobení výšky obsahu */
-    min-height: 100vh; /* ale minimálně celá výška obrazovky */
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
   .hero video {
-    height: 100vh; /* donutí video vyplnit mobil */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .overlay {
+    padding-top: 10vh; /* sníží prázdné místo nahoře */
+    height: 100%; /* zajistí, že overlay jde přes celé hero */
   }
 }
 
