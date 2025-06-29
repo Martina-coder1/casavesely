@@ -1,0 +1,714 @@
+/* =========================
+   GLOBAL STYLY
+   ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("/images/plaz.jpg"); /* nahraď cestou k tvému obrázku */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* pokud chceš efekt paralaxy */
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+   display: flex;
+  flex-direction: column;
+}
+html, body {
+  height: 100%;
+}
+main {
+  flex: 1;
+}
+
+
+/* =========================
+   HLAVIČKA A PATIČKA
+   ========================= */
+
+.site-header .header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Základní styl menu */
+.main-nav {
+  display: flex;
+  justify-content: space-between; /* toto nech */
+  align-items: center;
+  background: #002b5b;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+
+.main-nav .logo img {
+  max-height: 80px;
+  margin-right: 2rem; /* z původních 15rem na menší */
+  margin-bottom: -13px;
+}
+
+
+/* Hamburger skrytý defaultně */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Menu odkazy defaultně */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #bfa380;
+}
+
+/* MEDIA QUERY pro mobily */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+    .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 100%;
+    right: 0; /* přidáno */
+    left: auto; /* přidáno */
+    width: auto; /* aby nebylo přes celou šířku */
+    min-width: 150px; /* nastav dle svého designu */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+body.podstranka {
+  background: url('/images/plaz.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Pokud chceš jemný overlay pro lepší čitelnost textu (doporučuji), aktivuj tento blok */
+body.podstranka::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.3); /* jemný bílý filtr pro čitelnost */
+  z-index: -1;
+}
+
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+.site-footer {
+  background: #002b5b;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   STYL ÚVODNÍ STRÁNKY (hero)
+   ========================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh; /* místo height */
+  height: auto;
+  max-height: none; /* odstraníme omezení */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh; /* například menší na mobilech */
+  }
+}
+
+
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* přidáme */
+  object-fit: cover;
+  z-index: -1;
+}
+.overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 30vh;
+  color: white;
+  height: 100%;
+}
+
+.overlay::before {
+  content: "";
+  display: none;
+}
+
+.text-box h2,
+.text-box p,
+h1 {
+  text-shadow: 0 0 5px rgba(19, 9, 99, 0.5);
+}
+
+.logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #002b5b;
+}
+
+/* =========================
+   TLAČÍTKA
+   ========================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #002b5b; /* tmavě modrá */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #fae8d3; /* champagne zlatavá */
+}
+
+.btn.champagne {
+  background-color: #bfa380; /* champagne */
+  color: white;
+}
+
+.btn.champagne:hover {
+  background-color: #a98d6e;
+}
+
+/* =========================
+   SEKCE NA ÚVODNÍ STRÁNCE (bottom text)
+   ========================= */
+
+.bottom-text {
+  display: flex;
+  justify-content: center;
+  gap: 15rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.text-box {
+  max-width: 400px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.text-box h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.text-box p {
+  margin-bottom: 1.5rem; /* zvětšeno pro vzdušnost */
+}
+
+/* =========================
+   STRÁNKA SLUŽBY
+   ========================= */
+
+.services {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem; /* sníženo z 4rem na 2rem pro menší mezeru nahoře */
+}
+
+.services h1 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 1rem; /* přidáno pro posunutí nadpisu výš */
+  margin-bottom: 2rem; /* sníženo z 3rem na 2rem */
+}
+
+/* === Nadpisy sekcí === */
+.section-block h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #002b5b;
+  margin-bottom: 1rem;
+}
+
+.section-block ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+}
+
+.section-block ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* === Proces nákupu === */
+
+.purchase-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.purchase-process .step {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.purchase-process .step:hover {
+  transform: translateY(-5px);
+}
+
+.purchase-process .step-number {
+  background: #bfa380; /* champagne */
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 1rem auto;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.purchase-process .step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #002b5b;
+}
+
+.purchase-process .step p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* =========================
+   NADPIS S ORNAMENTEM (flourish)
+   ========================= */
+
+.title-with-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* mezera mezi ornamentem a nadpisem */
+  margin: 1rem 0; /* sníženo z 2rem pro menší vertikální mezeru */
+}
+
+.title-with-flourish .flourish {
+  max-width: 110px; /* uprav velikost podle vzhledu */
+  opacity: 0.7; /* mírná průhlednost pro jemnost */
+}
+
+.title-with-flourish h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Stránka se připravuje kontakt, costa blanca*/
+
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* výška, aby to bylo pěkně vycentrované */
+  font-size: 1.5rem;
+  color: #002b5b;
+  font-family: 'Playfair Display', serif;
+}
+
+/* filtr*/
+
+.filter {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter select, .filter button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.property-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.property-card .property-image {
+  background: #ddd;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.property-icons span {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.property-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-card h3 {
+  margin: 0.5rem 0;
+  color: #002b5b;
+}
+
+.property-card p {
+  margin: 0.2rem 0;
+}
+
+.property-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter select,
+.filter button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.filter button {
+  background-color: #002b5b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filter button:hover {
+  background-color: #bfa380;
+}
+/* NEMOVITOSTI*/
+
+.nemo {text-align: center;}
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* pouze 4 sloupce */
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px; /* aby to nebylo příliš široké */
+}
+
+.property-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.property-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.property-icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 1rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.property-card a {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* costa-blanca*/
+
+.costa-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* aby to bylo responzivní později */
+}
+
+.costa-map img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.costa-text {
+  max-width: 600px;
+}
+
+.costa-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.costa-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.kontakt {text-align: center;}
+
+/* poznámka costa blanca*/
+.page-note {
+  background-color: #f9f9f9;
+  border-left: 4px solid #ccc;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+   border-left: 4px solid orange;
+}
+
+.page-note strong {
+  font-weight: bold;
+}
+
+/* poznámka kontakt*/
+.note-box {
+  background: white;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-left: 4px solid orange;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  margin-top: 400px;
+}
+
+.note-box strong {
+  font-weight: bold;
+}
+
+/* =========================
+   MEDIA QUERIES – TABLET
+   ========================= */
+
+@media (max-width: 1024px) {
+  .properties-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bottom-text {
+    gap: 5rem;
+  }
+
+  .costa-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .costa-map img {
+    max-width: 250px;
+  }
+}
+
+/* =========================
+   MEDIA QUERIES – MOBIL
+   ========================= */
+
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .hero {
+    height: 80vh;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bottom-text {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .properties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .property-icons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .note-box {
+    margin-top: 2rem;
+  }
+
+  .costa-container {
+    flex-direction: column;
+  }
+
+  .costa-text h1 {
+    font-size: 2rem;
+  }
+
+  .costa-map img {
+    max-width: 200px;
+  }
+}
+@media (max-width: 768px) {
+  .overlay {
+    padding-top: 10vh; /* sníží prázdné místo nahoře */
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    height: auto; /* umožní přizpůsobení výšky obsahu */
+    min-height: 100vh; /* ale minimálně celá výška obrazovky */
+  }
+
+  .hero video {
+    height: 100vh; /* donutí video vyplnit mobil */
+  }
+}
+
+
+  h1 {
+    font-size: 1.8rem; /* menší nadpis */
+  }
+
+  .bottom-text {
+    gap: 1rem;
+  }
+
+@media (max-width: 768px) {
+  .nav-links {
+    background: #002b5b; /* tmavé pozadí menu v mobilu */
+  }
+
+  .nav-links li a {
+    color: white; /* aby odkazy byly viditelné */
+  }
+
+  .nav-links li a:hover {
+    color: #bfa380; /* champagne při najetí */
+  }
+}

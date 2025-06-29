@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+
+  <!-- Fonty -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="podstranka">
+  <header class="site-header">
+    <nav class="main-nav">
+      <div class="nav-left">
+        <div class="logo">
+          <a href="/">
+            <img src="/images/logo.png" alt="Casa Veselý logo" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/nemovitosti/">Nemovitosti</a></li>
+          <li><a href="/costa-blanca/">Costa Blanca</a></li>
+          <li><a href="/sluzby/">Naše služby</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="hamburger">
+        ☰
+      </div>
+    </nav>
+  </header>
+  <main>
+
+
+  {{ content | safe }} 
+
+</main>
+  <footer class="site-footer">
+    <p>&copy; 2025 Casa Veselý. Všechna práva vyhrazena.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+<script src="../js/properties.js"></script>
+
+</body>
+</html>
