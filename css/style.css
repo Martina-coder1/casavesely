@@ -19,6 +19,7 @@ body {
   padding: 0;
    display: flex;
   flex-direction: column;
+  height: 100%;
 }
 html, body {
   height: 100%;
@@ -168,6 +169,7 @@ body.podstranka::before {
   object-fit: cover;
   z-index: -1;
 }
+
 .overlay {
   position: relative;
   z-index: 1;
